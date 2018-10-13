@@ -11,8 +11,9 @@ from werkzeug.urls import url_parse
 @login_required
 def index():
     posts =[
-        {'author' : {'username': "Ricardo"},
-        'body' : "Some lipsum ipsum text"},
+        {
+            'author' : {'username': "Ricardo"},
+            'body' : "Some lipsum ipsum text"},
         {
             'author' : {'username': 'Serra'},
             'body' : "Some text"
@@ -52,7 +53,7 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash('C©ongratulations, you are now registered!')
+        flash('Congratulations, you are now registered!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
